@@ -253,68 +253,111 @@ namespace CppWinForm1 {
 	}
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	
-	button->button2 = true;
-	if(button->button2)
-		g->DrawImage(bmp, 0, 0);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 0, 0);
-
+		button->x1 = true;
+	}
+	else {
+		g->DrawImage(bmp, 0, 0);
+		button->o1 = true;
+	}
+	button->check_win();
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = !button->button2;
-	if (button->button2)
-		g->DrawImage(bmp, 151, 0);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 151, 0);
+		button->x2 = true;
+	}
+	else {
+		g->DrawImage(bmp, 151, 0);
+		button->o2 = true;
+	}
+	button->check_win();
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 301, 0);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 301, 0);
+		button->x3 = true;
+	}
+	else {
+		g->DrawImage(bmp, 301, 0);
+		button->o3 = true;
+	}
+	button->check_win();
 }
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 0, 151);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 0, 151);
+		button->x4 = true;
+	}
+	else {
+		g->DrawImage(bmp, 0, 151);
+		button->o4 = true;
+	}
+	button->check_win();
 }
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 151, 151);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 151, 151);
+		button->x5= true;
+	}
+	else {
+		g->DrawImage(bmp, 151, 151);
+		button->o5 = true;
+	}
+	button->check_win();
 }
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 301, 151);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 301, 151);
+		button->x6 = true;
+	}
+	else {
+		g->DrawImage(bmp, 301, 151);
+		button->o6 = true;
+	}
+	button->check_win();
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 0, 301);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 0, 301);
+		button->x7 = true;
+	}
+	else {
+		g->DrawImage(bmp, 0, 301);
+		button->o7 = true;
+	}
+	button->check_win();
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 151, 301);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 151, 301);
+		button->x8 = true;
+	}
+	else {
+		g->DrawImage(bmp, 151, 301);
+		button->o8 = true;
+	}
 }
 private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
-	button->button2 = true;
-	if (button->button2)
-		g->DrawImage(bmp, 301, 301);
-	else
+	button->X_turn = !button->X_turn;
+	if (button->X_turn) {
 		g->DrawImage(bmp2, 301, 301);
+		button->x9 = true;
+	}
+	else {
+		g->DrawImage(bmp, 301, 301);
+		button->o9 = true;
+	}
+	button->check_win();
 }
 };
 }
