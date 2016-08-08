@@ -48,7 +48,8 @@ public:
 		|| (this->o1 && this->o4 && this->o7) 
 		|| (this->o3 && this->o6 && this->o9) 
 		|| (this->o1 && this->o5 && this->o9) 
-		|| (this->o2 && this->o5 && this->o8)) {
+		|| (this->o2 && this->o5 && this->o8)
+		|| (this->o3 && this->o5 && this->o7)) {
 			MessageBox::Show("Player O Wins!");
 			return true;
 		}
