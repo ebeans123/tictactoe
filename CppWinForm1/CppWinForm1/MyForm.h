@@ -66,6 +66,7 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::Button^  button10;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  textBox2;
 
 			 int y = 132;
 
@@ -90,6 +91,7 @@ namespace CppWinForm1 {
 			this->button10 = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -108,7 +110,7 @@ namespace CppWinForm1 {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(49, 44);
 			this->button2->TabIndex = 2;
-			this->button2->Text = L"button2";
+			this->button2->Text = L"Box 1";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
@@ -118,7 +120,7 @@ namespace CppWinForm1 {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(49, 44);
 			this->button3->TabIndex = 3;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"Box 2";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -128,7 +130,7 @@ namespace CppWinForm1 {
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(49, 44);
 			this->button4->TabIndex = 4;
-			this->button4->Text = L"button4";
+			this->button4->Text = L"Box 3";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
@@ -138,7 +140,7 @@ namespace CppWinForm1 {
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(49, 44);
 			this->button5->TabIndex = 5;
-			this->button5->Text = L"button5";
+			this->button5->Text = L"Box 4";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
@@ -148,7 +150,7 @@ namespace CppWinForm1 {
 			this->button6->Name = L"button6";
 			this->button6->Size = System::Drawing::Size(49, 44);
 			this->button6->TabIndex = 6;
-			this->button6->Text = L"button6";
+			this->button6->Text = L"Box 5";
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
@@ -158,7 +160,7 @@ namespace CppWinForm1 {
 			this->button7->Name = L"button7";
 			this->button7->Size = System::Drawing::Size(49, 44);
 			this->button7->TabIndex = 7;
-			this->button7->Text = L"button7";
+			this->button7->Text = L"Box 6";
 			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
 			// 
@@ -168,7 +170,7 @@ namespace CppWinForm1 {
 			this->button8->Name = L"button8";
 			this->button8->Size = System::Drawing::Size(49, 44);
 			this->button8->TabIndex = 8;
-			this->button8->Text = L"button8";
+			this->button8->Text = L"Box 7";
 			this->button8->UseVisualStyleBackColor = true;
 			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
 			// 
@@ -178,7 +180,7 @@ namespace CppWinForm1 {
 			this->button9->Name = L"button9";
 			this->button9->Size = System::Drawing::Size(49, 44);
 			this->button9->TabIndex = 9;
-			this->button9->Text = L"button9";
+			this->button9->Text = L"Box 8";
 			this->button9->UseVisualStyleBackColor = true;
 			this->button9->Click += gcnew System::EventHandler(this, &MyForm::button9_Click);
 			// 
@@ -188,7 +190,7 @@ namespace CppWinForm1 {
 			this->button10->Name = L"button10";
 			this->button10->Size = System::Drawing::Size(49, 44);
 			this->button10->TabIndex = 10;
-			this->button10->Text = L"button10";
+			this->button10->Text = L"Box 9";
 			this->button10->UseVisualStyleBackColor = true;
 			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
@@ -206,11 +208,23 @@ namespace CppWinForm1 {
 			this->textBox1->TabIndex = 11;
 			this->textBox1->Text = L"X WINS!";
 			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(603, 42);
+			this->textBox2->Multiline = true;
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(213, 108);
+			this->textBox2->TabIndex = 12;
+			this->textBox2->Text = L"RULES:\r\n>The 1st Player will be \"X\"\r\n>The 2nd Player will be \"O\"\r\n>Chose the box "
+				L"and the corresponding\r\n value(\"X\" or \"O\") will display where clicked.\r\n";
+			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(816, 537);
+			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button10);
 			this->Controls->Add(this->button9);
@@ -415,6 +429,8 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 }
 private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
 	
+}
+private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
