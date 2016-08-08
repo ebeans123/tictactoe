@@ -67,6 +67,7 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::TextBox^  textBox3;
 
 			 int y = 132;
 
@@ -92,6 +93,7 @@ namespace CppWinForm1 {
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -219,11 +221,23 @@ namespace CppWinForm1 {
 				L"and the corresponding\r\n value(\"X\" or \"O\") will display where clicked.\r\n";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox2_TextChanged);
 			// 
+			// textBox3
+			// 
+			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 72, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox3->Location = System::Drawing::Point(-359, 84);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(379, 116);
+			this->textBox3->TabIndex = 13;
+			this->textBox3->Text = L"O Wins!";
+			this->textBox3->Visible = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(816, 537);
+			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button10);
@@ -298,7 +312,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 0);
 		button->o1 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button2->Enabled = false;
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -311,7 +325,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 0);
 		button->o2 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button3->Enabled = false;
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -324,7 +338,7 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 301, 0);
 		button->o3 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button4->Enabled = false;
 }
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -337,7 +351,7 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 151);
 		button->o4 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button5->Enabled = false;
 }
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -350,7 +364,7 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 151);
 		button->o5 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button6->Enabled = false;
 }
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -363,7 +377,7 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 301, 151);
 		button->o6 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button7->Enabled = false;
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -376,7 +390,7 @@ private: System::Void button8_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 301);
 		button->o7 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button8->Enabled = false;
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -389,7 +403,7 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 301);
 		button->o8 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button9->Enabled = false;
 }
 private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -402,7 +416,7 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 		g->DrawImage(bmp, 301, 301);
 		button->o9 = true;
 	}
-	button->check_win(x_wins);
+	button->check_win();
 	button10->Enabled = false;
 }
 
@@ -422,9 +436,14 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 
 
 	}
-	if (x_wins) {
+	if (button->x_wins) {
 		textWidth += 5;
 		textBox1->Location = Point(textWidth, 0);
+	}
+	if (button->o_wins) {
+		textWidth += 5;
+		textBox3->Visible = true;
+		textBox3->Location = Point(textWidth, 84);
 	}
 }
 private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {

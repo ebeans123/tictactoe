@@ -24,7 +24,9 @@ public:
 	bool o8 = false;
 	bool o9 = false;
 
-	bool check_win(bool  x_wins) {
+	bool x_wins = false;
+	bool o_wins = false;
+	void check_win() {
 		if ((this->x1 && this->x2 && this->x3 )
 		 ||( this->x4 && this->x5 && this->x6)
 		 ||( this->x7 && this->x8 && this->x9 )
@@ -33,9 +35,9 @@ public:
 		 || (this->x3 && this->x6 && this->x9) 
 		 || (this->x1 && this->x5 && this->x9) 
 		 || (this->x3 && this->x5 && this->x7)) {
-			MessageBox::Show("Player X Wins!");
+			//MessageBox::Show("Player X Wins!");
 			x_wins = true;
-			return true;
+			
 			
 		}
 
@@ -51,8 +53,9 @@ public:
 		|| (this->o1 && this->o5 && this->o9) 
 		|| (this->o2 && this->o5 && this->o8)
 		|| (this->o3 && this->o5 && this->o7)) {
-			MessageBox::Show("Player O Wins!");
-			return true;
+			//MessageBox::Show("Player O Wins!");
+			o_wins = true;
+			
 		}
 }
 
