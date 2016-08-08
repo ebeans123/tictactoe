@@ -66,6 +66,7 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::Button^  button10;
 	private: System::Windows::Forms::Timer^  timer1;
 	private: System::Windows::Forms::TextBox^  textBox1;
+
 			 int y = 132;
 
 
@@ -421,6 +422,9 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 		textWidth += 5;
 		textBox1->Location = Point(textWidth, 0);
 	}
+}
+private: System::Void button11_Click(System::Object^  sender, System::EventArgs^  e) {
+	
 }
 };
 }
