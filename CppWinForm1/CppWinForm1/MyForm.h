@@ -204,11 +204,14 @@ namespace CppWinForm1 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(0, 0);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(-231, 206);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->Size = System::Drawing::Size(269, 80);
 			this->textBox1->TabIndex = 11;
 			this->textBox1->Text = L"X WINS!";
+			this->textBox1->Visible = false;
 			// 
 			// textBox2
 			// 
@@ -438,7 +441,8 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 	}
 	if (button->x_wins) {
 		textWidth += 5;
-		textBox1->Location = Point(textWidth, 0);
+		textBox1->Visible = true;
+		textBox1->Location = Point(textWidth, 206);
 	}
 	if (button->o_wins) {
 		textWidth += 5;
