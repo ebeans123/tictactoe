@@ -51,7 +51,7 @@ namespace CppWinForm1 {
 		Bitmap^ bmp = gcnew Bitmap(L"o.bmp");
 		Buttons^ button = gcnew Buttons;
 		Bitmap^ bmp2 = gcnew Bitmap(L"x.bmp");
-		
+		bool x_wins = false;
 		
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
@@ -235,7 +235,7 @@ namespace CppWinForm1 {
 		}
 #pragma endregion
 		int textWidth = 5;
-		bool x_wins = false;
+		
 		
 		
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
@@ -391,6 +391,8 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 	button->check_win(x_wins);
 	button10->Enabled = false;
 }
+
+
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 
 	pen = gcnew Pen(Color::Red);

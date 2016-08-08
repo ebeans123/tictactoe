@@ -24,18 +24,19 @@ public:
 	bool o8 = false;
 	bool o9 = false;
 
-	bool check_win(bool x_wins) {
+	bool check_win(bool  x_wins) {
 		if ((this->x1 && this->x2 && this->x3 )
 		 ||( this->x4 && this->x5 && this->x6)
 		 ||( this->x7 && this->x8 && this->x9 )
 		 ||( this->x1 && this->x4 && this->x7)
 		 ||( this->x2 && this->x5 && this->x8)
 		 || (this->x3 && this->x6 && this->x9) 
-		|| (this->x1 && this->x5 && this->x9) 
-		|| (this->x3 && this->x5 && this->x7)) {
+		 || (this->x1 && this->x5 && this->x9) 
+		 || (this->x3 && this->x5 && this->x7)) {
 			MessageBox::Show("Player X Wins!");
-			return true;
 			x_wins = true;
+			return true;
+			
 		}
 
 
