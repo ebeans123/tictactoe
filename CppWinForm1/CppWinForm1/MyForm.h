@@ -34,13 +34,15 @@ namespace CppWinForm1 {
 				delete components;
 			}
 		}
+	private: System::ComponentModel::IContainer^  components;
+	protected:
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 
-		System::ComponentModel::Container ^components;
+
 		Graphics^ g;
 		Pen^ pen;
 		int numofCandR = 3;
@@ -62,6 +64,8 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::Button^  button8;
 	private: System::Windows::Forms::Button^  button9;
 	private: System::Windows::Forms::Button^  button10;
+	private: System::Windows::Forms::Timer^  timer1;
+	private: System::Windows::Forms::TextBox^  textBox1;
 			 int y = 132;
 
 
@@ -72,6 +76,7 @@ namespace CppWinForm1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -83,6 +88,8 @@ namespace CppWinForm1 {
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
 			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -195,11 +202,26 @@ namespace CppWinForm1 {
 			this->button10->UseVisualStyleBackColor = true;
 			this->button10->Click += gcnew System::EventHandler(this, &MyForm::button10_Click);
 			// 
+			// timer1
+			// 
+			this->timer1->Enabled = true;
+			this->timer1->Interval = 25;
+			this->timer1->Tick += gcnew System::EventHandler(this, &MyForm::timer1_Tick);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(0, 0);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 20);
+			this->textBox1->TabIndex = 11;
+			this->textBox1->Text = L"X WINS!";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(816, 537);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button10);
 			this->Controls->Add(this->button9);
 			this->Controls->Add(this->button8);
@@ -219,21 +241,30 @@ namespace CppWinForm1 {
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
-
+		int textWidth = 5;
+		bool x_wins = false;
 		
 		
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 		g = pictureBox1->CreateGraphics();
+		
+		
+
 	}
 	private: System::Void MyForm_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+	//	g = pictureBox1->CreateGraphics();
 
-	
+		
+		
+		
 
 	}
 	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		g = pictureBox1->CreateGraphics();
@@ -264,7 +295,8 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 0);
 		button->o1 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button2->Enabled = false;
 }
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -276,7 +308,8 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 0);
 		button->o2 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button3->Enabled = false;
 }
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -288,7 +321,8 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 301, 0);
 		button->o3 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button4->Enabled = false;
 }
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -300,7 +334,8 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 151);
 		button->o4 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button5->Enabled = false;
 }
 private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -312,7 +347,8 @@ private: System::Void button6_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 151);
 		button->o5 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button6->Enabled = false;
 }
 private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -324,7 +360,8 @@ private: System::Void button7_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 301, 151);
 		button->o6 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button7->Enabled = false;
 }
 private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -336,7 +373,8 @@ private: System::Void button8_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 0, 301);
 		button->o7 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button8->Enabled = false;
 }
 private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -348,6 +386,8 @@ private: System::Void button9_Click(System::Object^  sender, System::EventArgs^ 
 		g->DrawImage(bmp, 151, 301);
 		button->o8 = true;
 	}
+	button->check_win(x_wins);
+	button9->Enabled = false;
 }
 private: System::Void button10_Click(System::Object^  sender, System::EventArgs^  e) {
 	button->X_turn = !button->X_turn;
@@ -359,7 +399,28 @@ private: System::Void button10_Click(System::Object^  sender, System::EventArgs^
 		g->DrawImage(bmp, 301, 301);
 		button->o9 = true;
 	}
-	button->check_win();
+	button->check_win(x_wins);
+	button10->Enabled = false;
+}
+private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
+
+	pen = gcnew Pen(Color::Red);
+
+	for (int i = 1; i < numofCandR; i++)
+	{
+		g->DrawLine(pen, i * cellSize, 0, i * cellSize, numofCandR * cellSize);
+		for (int j = 1; j < numofCandR; j++)
+		{
+			g->DrawLine(pen, 0, j * cellSize, numofCandR * cellSize, j * cellSize);
+
+		}
+
+
+	}
+	if (x_wins) {
+		textWidth += 5;
+		textBox1->Location = Point(textWidth, 0);
+	}
 }
 };
 }
